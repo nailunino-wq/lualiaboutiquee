@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lualia Boutique | Moda Femenina en San Cristóbal, Venezuela</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPink: {
+                            50: '#fff5f8',
+                            100: '#fde8f0',
+                            200: '#fbcfe0',
+                            300: '#f8a8c4',
+                            400: '#f3739d',
+                            500: '#e84578',
+                            600: '#d5265b',
+                        },
+                        brandDark: '#1a1a1a',
+                        brandGray: '#666666',
+                        brandBg: '#fafafa'
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        accent: ['Cormorant Garamond', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Fonts Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+        .font-logo {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.15em;
+        }
+        .subtitle-logo {
+            letter-spacing: 0.45em;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .floating-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .floating-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px -8px rgba(248, 168, 196, 0.25);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff5f8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f8a8c4;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f3739d;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brandPink-200 selection:text-brandDark">
+
+    <div class="bg-gradient-to-r from-brandPink-100 via-brandPink-200 to-brandPink-100 text-brandDark text-xs md:text-sm py-2 px-4 text-center font-medium tracking-wide border-b border-brandPink-200 flex items-center justify-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-brandPink-500 animate-ping"></span>
+        <span>🚚 Envíos a toda Venezuela (MRW, Zoom, Tealca) • 🛵 Delivery Gratis en San Cristóbal</span>
+    </div>
+
+    <header class="sticky top-0 z-40 glass-nav border-b border-brandPink-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo Lualia Boutique -->
+                <a href="#" class="flex flex-col items-center group py-2">
+                    <span class="text-3xl md:text-4xl font-extrabold text-brandPink-300 font-logo transition-colors group-hover:text-brandPink-400 tracking-widest">LUALIA</span>
+                    <span class="text-[10px] md:text-[11px] text-gray-700 font-light uppercase subtitle-logo -mt-1 tracking-[0.4em]">B O U T I Q U E</span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                    <a href="#inicio" class="text-brandDark hover:text-brandPink-500 transition-colors">Inicio</a>
+                    <a href="#catalogo" class="text-brandDark hover:text-brandPink-500 transition-colors">Colección</a>
+                    <a href="#galeria" class="text-brandDark hover:text-brandPink-500 transition-colors">Galería</a>
+                    <a href="#nosotros" class="text-brandDark hover:text-brandPink-500 transition-colors">Nosotros</a>
+                    <a href="#preguntas" class="text-brandDark hover:text-brandPink-500 transition-colors">Envíos & Pagos</a>
+                </nav>
+
+                <!-- Action Icons (Cart & Social) -->
+                <div class="flex items-center space-x-4">
+                    <a href="https://instagram.com/lualia_boutiquesc" target="_blank" rel="noopener noreferrer" 
+                       class="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-brandPink-50 text-brandPink-500 hover:bg-brandPink-100 transition-colors" title="Síguenos en Instagram">
+                        <i class="fab fa-instagram text-lg"></i>
+                    </a>
+
+                    <!-- Cart Trigger Button -->
+                    <button onclick="toggleCart()" class="relative p-2 text-brandDark hover:text-brandPink-500 transition-colors focus:outline-none" aria-label="Ver Carrito">
+                        <i class="fa-solid fa-bag-shopping text-2xl"></i>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-brandPink-500 text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-md">0</span>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-brandDark hover:text-brandPink-500 transition-colors focus:outline-none" aria-label="Menú">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-brandPink-100 px-6 py-6 space-y-4 shadow-xl">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block text-base font-medium text-brandDark hover:text-brandPink-500">Inicio</a>
+            <a href="#catalogo" onclick="toggleMobileMenu()" class="block text-base font-medium text-brandDark hover:text-brandPink-500">Colección</a>
+            <a href="#galeria" onclick="toggleMobileMenu()" class="block text-base font-medium text-brandDark hover:text-brandPink-500">Galería Chica Lualia</a>
+            <a href="#nosotros" onclick="toggleMobileMenu()" class="block text-base font-medium text-brandDark hover:text-brandPink-500">Sobre Nosotros</a>
+            <a href="#preguntas" onclick="toggleMobileMenu()" class="block text-base font-medium text-brandDark hover:text-brandPink-500">Envíos & Métodos de Pago</a>
+            <div class="pt-4 border-t border-brandPink-100 flex items-center space-x-4">
+                <a href="https://instagram.com/lualia_boutiquesc" target="_blank" class="flex items-center gap-2 text-sm text-brandPink-600 font-semibold">
+                    <i class="fab fa-instagram text-lg"></i> @lualia_boutiquesc
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="inicio" class="relative overflow-hidden bg-gradient-to-b from-brandPink-50/60 via-white to-white py-12 lg:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brandPink-100/80 border border-brandPink-200 text-brandPink-600 text-xs font-semibold tracking-wider uppercase">
+                        <i class="fa-solid fa-sparkles text-xs"></i> Nueva Colección 2026
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-logo text-brandDark leading-tight">
+                        Resalta tu estilo con <span class="text-transparent bg-clip-text bg-gradient-to-r from-brandPink-400 to-brandPink-600">Lualia Boutique</span>
+                    </h1>
+                    
+                    <p class="text-brandGray text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
+                        Diseños exclusivos en <strong class="font-semibold text-brandDark">Body's chic</strong>, <strong class="font-semibold text-brandDark">Franelas Oversize</strong> ultramodernas y <strong class="font-semibold text-brandDark">Gorras Personalizadas</strong> creadas especialmente para ti en San Cristóbal con envíos a toda Venezuela.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#catalogo" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full bg-brandPink-400 hover:bg-brandPink-500 text-white font-semibold text-sm transition-all shadow-lg shadow-brandPink-300/50 hover:shadow-xl hover:shadow-brandPink-400/40 transform hover:-translate-y-0.5">
+                            Explorar Colección <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                        <a href="https://wa.me/584147514308?text=Hola%20Lualia%20Boutique!%20Me%20gustaría%20asesoría%20personalizada%20para%20un%20pedido" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full bg-white border-2 border-brandPink-200 hover:border-brandPink-400 text-brandDark font-semibold text-sm transition-all hover:bg-brandPink-50">
+                            <i class="fab fa-whatsapp text-emerald-500 text-lg mr-2"></i> Asesoría por WhatsApp
+                        </a>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="pt-8 border-t border-brandPink-100 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <p class="text-xl sm:text-2xl font-bold text-brandDark font-logo">+1,500</p>
+                            <p class="text-xs text-brandGray">Chicas Felices</p>
+                        </div>
+                        <div>
+                            <p class="text-xl sm:text-2xl font-bold text-brandDark font-logo">100%</p>
+                            <p class="text-xs text-brandGray">Personalizado</p>
+                        </div>
+                        <div>
+                            <p class="text-xl sm:text-2xl font-bold text-brandDark font-logo">Venezuela</p>
+                            <p class="text-xs text-brandGray">Envíos Nacionales</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image Grid / Banner -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Decorative background circle -->
+                        <div class="absolute -top-6 -left-6 w-72 h-72 bg-brandPink-200/50 rounded-full blur-3xl -z-10"></div>
+                        <div class="absolute -bottom-6 -right-6 w-72 h-72 bg-brandPink-300/40 rounded-full blur-3xl -z-10"></div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="space-y-4">
+                                <div class="overflow-hidden rounded-2xl shadow-md border-2 border-white">
+                                    <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&q=80&w=600" alt="Body Femenino Elegante Lualia" class="w-full h-56 sm:h-64 object-cover transform hover:scale-105 transition duration-500">
+                                </div>
+                                <div class="bg-brandPink-100 p-4 rounded-2xl text-center border border-brandPink-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brandPink-600 uppercase tracking-wider">Gorras Únicas</p>
+                                    <p class="text-xs text-gray-600 mt-1">Con tu estilo & bordados a tu gusto</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4 pt-6">
+                                <div class="bg-white p-4 rounded-2xl border border-brandPink-100 shadow-sm text-center">
+                                    <p class="text-xs font-bold text-brandDark uppercase tracking-wider">Franelas Oversize</p>
+                                    <p class="text-xs text-gray-500 mt-1">100% Algodón Premium</p>
+                                </div>
+                                <div class="overflow-hidden rounded-2xl shadow-md border-2 border-white">
+                                    <img src="https://images.unsplash.com/photo-1554568218-0f1715e72254?auto=format&fit=crop&q=80&w=600" alt="Franela Oversize Mujer Moda" class="w-full h-56 sm:h-64 object-cover transform hover:scale-105 transition duration-500">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Badge Overlay -->
+                        <div class="absolute -bottom-4 -left-4 bg-white/95 backdrop-blur-md p-4 rounded-xl shadow-xl border border-brandPink-100 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brandPink-100 flex items-center justify-center text-brandPink-500 font-bold">
+                                📍
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-brandDark">San Cristóbal, Táchira</p>
+                                <p class="text-[11px] text-gray-500">Atención rápida y personalizada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Categoria 1 -->
+                <div onclick="filterCategory('bodys')" class="cursor-pointer group relative overflow-hidden rounded-2xl bg-brandPink-50 p-6 border border-brandPink-100 hover:border-brandPink-300 transition-all">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-brandPink-500 font-bold">Esenciales</span>
+                            <h3 class="text-2xl font-bold font-logo text-brandDark mt-1">Body's Mujer</h3>
+                            <p class="text-xs text-brandGray mt-2">Manga larga, manga corta y sin mangas en colores básicos entallados.</p>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brandPink-400 group-hover:bg-brandPink-400 group-hover:text-white transition-colors shadow-sm">
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </div>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=400" alt="Bodys Mujer Básicos" class="w-full h-40 object-cover rounded-xl mt-4 transform group-hover:scale-105 transition duration-300">
+                </div>
+
+                <!-- Categoria 2 -->
+                <div onclick="filterCategory('oversize')" class="cursor-pointer group relative overflow-hidden rounded-2xl bg-brandPink-50 p-6 border border-brandPink-100 hover:border-brandPink-300 transition-all">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-brandPink-500 font-bold">Urban Style</span>
+                            <h3 class="text-2xl font-bold font-logo text-brandDark mt-1">Franelas Oversize</h3>
+                            <p class="text-xs text-brandGray mt-2">Comodidad, estampados modernos y estilo relajado.</p>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brandPink-400 group-hover:bg-brandPink-400 group-hover:text-white transition-colors shadow-sm">
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </div>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&q=80&w=400" alt="Franelas Oversize Femeninas" class="w-full h-40 object-cover rounded-xl mt-4 transform group-hover:scale-105 transition duration-300">
+                </div>
+
+                <!-- Categoria 3 -->
+                <div onclick="filterCategory('gorras')" class="cursor-pointer group relative overflow-hidden rounded-2xl bg-brandPink-50 p-6 border border-brandPink-100 hover:border-brandPink-300 transition-all">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-brandPink-500 font-bold">Accesorios</span>
+                            <h3 class="text-2xl font-bold font-logo text-brandDark mt-1">Gorras Personalizadas</h3>
+                            <p class="text-xs text-brandGray mt-2">Personaliza con iniciales, frases o tu logo favorito.</p>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brandPink-400 group-hover:bg-brandPink-400 group-hover:text-white transition-colors shadow-sm">
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </div>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&q=80&w=400" alt="Gorras Personalizadas" class="w-full h-40 object-cover rounded-xl mt-4 transform group-hover:scale-105 transition duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalogo" class="py-16 bg-brandBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs uppercase tracking-widest text-brandPink-500 font-bold">Catálogo Oficial</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-logo text-brandDark mt-1">Nuestra Colección Exclusiva</h2>
+                <p class="text-brandGray text-sm mt-2">Selecciona tus prendas favoritas, personaliza talla y color, y realiza tu pedido directo al WhatsApp.</p>
+                
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-2 mt-8">
+                    <button onclick="filterCategory('todos')" id="filter-todos" class="filter-btn active px-5 py-2 rounded-full text-xs font-semibold transition-all bg-brandPink-400 text-white shadow-md">
+                        Todos los productos
+                    </button>
+                    <button onclick="filterCategory('bodys')" id="filter-bodys" class="filter-btn px-5 py-2 rounded-full text-xs font-semibold transition-all bg-white text-brandDark border border-brandPink-200 hover:bg-brandPink-100">
+                        Body's Mujer
+                    </button>
+                    <button onclick="filterCategory('oversize')" id="filter-oversize" class="filter-btn px-5 py-2 rounded-full text-xs font-semibold transition-all bg-white text-brandDark border border-brandPink-200 hover:bg-brandPink-100">
+                        Franelas Oversize
+                    </button>
+                    <button onclick="filterCategory('gorras')" id="filter-gorras" class="filter-btn px-5 py-2 rounded-full text-xs font-semibold transition-all bg-white text-brandDark border border-brandPink-200 hover:bg-brandPink-100">
+                        Gorras Personalizadas
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products Grid Container -->
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Products dynamically rendered by JS -->
+            </div>
+
+        </div>
+    </section>
+
+    <section id="galeria" class="py-16 bg-white border-t border-brandPink-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs uppercase tracking-widest text-brandPink-500 font-bold">#ChicaLualia</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-logo text-brandDark mt-1">Galería & Comunidades</h2>
+                <p class="text-brandGray text-sm mt-2">Inspiración real con nuestros bodys, oversize y gorras en acción. ¡Escríbenos en Instagram para aparecer aquí!</p>
+            </div>
+
+            <!-- Gallery Masonry Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="group relative overflow-hidden rounded-2xl shadow-sm cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&q=80&w=800', 'Body chic de alta costura')">
+                    <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&q=80&w=500" alt="Look Lualia 1" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                        <span class="text-white text-xs font-semibold"><i class="fab fa-instagram mr-1"></i> @lualia_boutiquesc</span>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl shadow-sm cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&q=80&w=800', 'Outfit con Franela Oversize Chica Lualia')">
+                    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&q=80&w=500" alt="Look Lualia 2" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                        <span class="text-white text-xs font-semibold"><i class="fab fa-instagram mr-1"></i> Outfit Oversize Casual</span>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl shadow-sm cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800', 'Look Chica Lualia con Gorra Chic')">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=500" alt="Look Lualia 3" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                        <span class="text-white text-xs font-semibold"><i class="fab fa-instagram mr-1"></i> Style Chica Lualia</span>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl shadow-sm cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800', 'Body manga larga lacio')">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=500" alt="Look Lualia 4" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                        <span class="text-white text-xs font-semibold"><i class="fab fa-instagram mr-1"></i> Colección Primavera-Verano</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Follow Instagram Box -->
+            <div class="mt-10 bg-brandPink-50 border border-brandPink-200 rounded-2xl p-6 text-center max-w-xl mx-auto">
+                <p class="text-sm font-semibold text-brandDark">¿Quieres ver más de nuestros looks en vivo?</p>
+                <p class="text-xs text-brandGray mt-1">Publicamos historias diarias de nuevos modelos y pedidos listos para enviar.</p>
+                <a href="https://instagram.com/lualia_boutiquesc" target="_blank" class="inline-flex items-center gap-2 mt-4 px-6 py-2.5 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-amber-500 text-white font-semibold text-xs shadow-md hover:opacity-90 transition-opacity">
+                    <i class="fab fa-instagram text-base"></i> Seguir en Instagram @lualia_boutiquesc
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="py-16 bg-gradient-to-b from-white to-brandPink-50/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="text-xs uppercase tracking-widest text-brandPink-500 font-bold">Conócenos</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold font-logo text-brandDark">Moda Femenina Diseñada con Amor desde San Cristóbal</h2>
+                    <p class="text-brandGray text-sm sm:text-base leading-relaxed">
+                        <strong class="text-brandDark font-semibold">Lualia Boutique</strong> nació de la pasión por ofrecer prendas que resalten la seguridad, comodidad y feminidad de cada mujer. Nos especializamos en la confección y selección cuidadosa de <span class="text-brandPink-600 font-semibold">Body’s que amoldan tu figura</span>, <span class="text-brandPink-600 font-semibold">Franelas Oversize en tendencia</span> y <span class="text-brandPink-600 font-semibold">Gorras Personalizadas</span> únicas.
+                    </p>
+                    <p class="text-brandGray text-sm sm:text-base leading-relaxed">
+                        Atendemos con dedicación desde San Cristóbal, Estado Táchira, despachando diariamente con embalaje seguro y rápido a cualquier rincón de Venezuela.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-full bg-brandPink-100 flex items-center justify-center text-brandPink-500 shrink-0">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-brandDark">Telas de Calidad</h4>
+                                <p class="text-[11px] text-brandGray">Algodón y licras colombianas suavecitas.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-full bg-brandPink-100 flex items-center justify-center text-brandPink-500 shrink-0">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-brandDark">Bordados a Tu Gusto</h4>
+                                <p class="text-[11px] text-brandGray">Personaliza tus gorras con iniciales o frases.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="bg-white p-6 rounded-3xl shadow-xl border border-brandPink-100 text-center relative z-10">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-brandPink-100 flex items-center justify-center mb-4 border-2 border-brandPink-300">
+                            <span class="text-2xl font-bold font-logo text-brandPink-500">L</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-logo text-brandDark">Lualia Boutique</h3>
+                        <p class="text-xs text-brandPink-500 uppercase tracking-widest mt-1 font-semibold">San Cristóbal, Venezuela</p>
+                        <p class="text-xs text-brandGray mt-4 italic">"Vístete como la versión de ti misma que quieres conquistar."</p>
+                        <div class="mt-6 pt-6 border-t border-brandPink-100 flex justify-center gap-6 text-xs text-brandDark">
+                            <span><i class="fa-solid fa-truck text-brandPink-400 mr-1"></i> MRW / Zoom / Tealca</span>
+                            <span><i class="fa-solid fa-location-dot text-brandPink-400 mr-1"></i> San Cristóbal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="preguntas" class="py-16 bg-white border-t border-brandPink-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs uppercase tracking-widest text-brandPink-500 font-bold">Información de Compra</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-logo text-brandDark mt-1">Envíos & Métodos de Pago</h2>
+                <p class="text-brandGray text-sm mt-2">Garantizamos un proceso transparente, seguro y rápido para la entrega de tu pedido.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Metodos de Envío -->
+                <div class="bg-brandPink-50/60 p-6 rounded-2xl border border-brandPink-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-brandPink-400 text-white flex items-center justify-center">
+                            <i class="fa-solid fa-box text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-brandDark">Opciones de Envío</h3>
+                            <p class="text-xs text-brandGray">Rápido y protegido</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-xs text-brandDark">
+                        <li class="flex items-center justify-between p-3 bg-white rounded-xl border border-brandPink-100">
+                            <span class="font-semibold"><i class="fa-solid fa-motorcycle text-brandPink-500 mr-2"></i> Delivery local San Cristóbal</span>
+                            <span class="text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded">Gratis o tarifa plana</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 bg-white rounded-xl border border-brandPink-100">
+                            <span class="font-semibold"><i class="fa-solid fa-truck-fast text-brandPink-500 mr-2"></i> Envíos Nacionales MRW / Zoom / Tealca</span>
+                            <span class="text-brandGray">Cobro en Destino</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 bg-white rounded-xl border border-brandPink-100">
+                            <span class="font-semibold"><i class="fa-solid fa-clock text-brandPink-500 mr-2"></i> Tiempo de Despacho</span>
+                            <span class="text-brandGray">24h a 48h hábiles</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Metodos de Pago -->
+                <div class="bg-brandPink-50/60 p-6 rounded-2xl border border-brandPink-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-brandPink-400 text-white flex items-center justify-center">
+                            <i class="fa-solid fa-wallet text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-brandDark">Métodos de Pago Aceptados</h3>
+                            <p class="text-xs text-brandGray">Múltiples opciones para tu facilidad</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 text-xs">
+                        <div class="bg-white p-3 rounded-xl border border-brandPink-100 flex items-center gap-2 font-medium text-brandDark">
+                            <i class="fa-solid fa-mobile-screen text-brandPink-500"></i> Pago Móvil
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-brandPink-100 flex items-center gap-2 font-medium text-brandDark">
+                            <i class="fa-solid fa-university text-brandPink-500"></i> Transferencia Banesco / Mercantil
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-brandPink-100 flex items-center gap-2 font-medium text-brandDark">
+                            <i class="fa-solid fa-dollar-sign text-brandPink-500"></i> Efectivo (USD / Pesos COP)
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-brandPink-100 flex items-center gap-2 font-medium text-brandDark">
+                            <i class="fa-solid fa-coins text-brandPink-500"></i> Zelle / Binance / Zinli
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brandDark text-white pt-12 pb-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-gray-800">
+                
+                <!-- Brand info -->
+                <div class="md:col-span-2 space-y-4">
+                    <a href="#" class="inline-block">
+                        <span class="text-3xl font-extrabold text-brandPink-300 font-logo tracking-widest">LUALIA</span>
+                        <p class="text-[10px] text-gray-400 uppercase subtitle-logo -mt-1 tracking-[0.4em]">B O U T I Q U E</p>
+                    </a>
+                    <p class="text-xs text-gray-400 max-w-sm leading-relaxed">
+                        Tu tienda online favorita de ropa femenina. Bodys elegantes, franelas oversize y gorras personalizadas hechas para resaltar lo mejor de ti.
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <a href="https://instagram.com/lualia_boutiquesc" target="_blank" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-brandPink-400 flex items-center justify-center text-white transition-colors" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/584147514308" target="_blank" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-emerald-500 flex items-center justify-center text-white transition-colors" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation links -->
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">Enlaces Rápidos</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><a href="#inicio" class="hover:text-brandPink-300 transition-colors">Inicio</a></li>
+                        <li><a href="#catalogo" class="hover:text-brandPink-300 transition-colors">Colección de Bodys</a></li>
+                        <li><a href="#catalogo" class="hover:text-brandPink-300 transition-colors">Franelas Oversize</a></li>
+                        <li><a href="#catalogo" class="hover:text-brandPink-300 transition-colors">Gorras Personalizadas</a></li>
+                        <li><a href="#galeria" class="hover:text-brandPink-300 transition-colors">Galería de Clientes</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Location -->
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">Ubicación & Contacto</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-location-dot text-brandPink-400 mt-0.5"></i>
+                            <span>San Cristóbal, Estado Táchira - Venezuela.</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fab fa-whatsapp text-emerald-400"></i>
+                            <a href="https://wa.me/584147514308" class="hover:text-white transition-colors">+58 414-7514308</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fab fa-instagram text-brandPink-400"></i>
+                            <a href="https://instagram.com/lualia_boutiquesc" target="_blank" class="hover:text-white transition-colors">@lualia_boutiquesc</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row justify-between items-center text-[11px] text-gray-500">
+                <p>© 2026 Lualia Boutique. Todos los derechos reservados.</p>
+                <p class="mt-2 sm:mt-0">Diseñado con ❤️ para emprendedoras venezolanas</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <!-- Instagram Floating Button -->
+        <a href="https://instagram.com/lualia_boutiquesc" target="_blank" rel="noopener noreferrer"
+           class="floating-btn w-14 h-14 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center shadow-xl hover:shadow-2xl border-2 border-white relative group"
+           aria-label="Instagram Lualia Boutique">
+            <i class="fab fa-instagram text-2xl"></i>
+            <span class="absolute right-16 top-2 bg-gray-900 text-white text-[11px] px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md pointer-events-none">
+                Síguenos @lualia_boutiquesc
+            </span>
+        </a>
+
+        <!-- WhatsApp Floating Button -->
+        <a href="https://wa.me/584147514308?text=Hola%20Lualia%20Boutique!%20Quiero%20consultar%20por%20sus%20prendas" target="_blank" rel="noopener noreferrer"
+           class="floating-btn w-14 h-14 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-xl hover:shadow-2xl border-2 border-white relative group"
+           aria-label="WhatsApp Lualia Boutique">
+            <i class="fab fa-whatsapp text-3xl"></i>
+            <!-- Pulse effect -->
+            <span class="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-25"></span>
+            <span class="absolute right-16 top-2 bg-gray-900 text-white text-[11px] px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md pointer-events-none">
+                Chatea con nosotros (+58 414-7514308)
+            </span>
+        </a>
+    </div>
+
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="toggleCart()"></div>
+
+        <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+            <div class="pointer-events-auto w-screen max-w-md bg-white shadow-2xl flex flex-col justify-between">
+                
+                <!-- Cart Header -->
+                <div class="p-6 border-b border-brandPink-100 flex items-center justify-between bg-brandPink-50">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-brandPink-500 text-xl"></i>
+                        <h3 class="text-lg font-bold font-logo text-brandDark">Tu Carrito de Compra</h3>
+                    </div>
+                    <button onclick="toggleCart()" class="text-gray-400 hover:text-brandDark p-2 focus:outline-none">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Cart Items Container -->
+                <div id="cart-items" class="p-6 overflow-y-auto flex-1 space-y-4">
+                    <!-- Dynamic cart items will appear here -->
+                </div>
+
+                <!-- Cart Footer & Send Order Button -->
+                <div class="p-6 border-t border-brandPink-100 bg-white space-y-4 shadow-inner">
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-brandGray">Total estimado:</span>
+                        <span id="cart-total" class="text-2xl font-bold font-logo text-brandPink-600">$0.00</span>
+                    </div>
+
+                    <p class="text-[11px] text-brandGray text-center">Al hacer clic se abrirá un mensaje de WhatsApp formateado con tu pedido listo para enviar.</p>
+
+                    <button onclick="sendWhatsAppOrder()" class="w-full py-4 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm transition-colors flex items-center justify-center gap-2 shadow-lg shadow-emerald-200">
+                        <i class="fab fa-whatsapp text-xl"></i> Finalizar Pedido por WhatsApp
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="product-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:p-0">
+            <div class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="closeProductModal()"></div>
+
+            <div class="inline-block w-full max-w-lg p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-2xl rounded-3xl relative">
+                <button onclick="closeProductModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-brandPink-100 text-brandDark flex items-center justify-center hover:bg-brandPink-200">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <div id="modal-content">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="lightbox-modal" class="fixed inset-0 z-50 overflow-hidden hidden bg-black/90 flex items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-brandPink-300">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-3xl max-h-[90vh] text-center space-y-4">
+            <img id="lightbox-img" src="" alt="Galería Ampliada" class="max-h-[75vh] mx-auto rounded-xl shadow-2xl border-2 border-white/20">
+            <p id="lightbox-caption" class="text-white text-sm font-light italic"></p>
+        </div>
+    </div>
+
+    <script>
+        // Array de Productos Oficiales Lualia Boutique
+        const products = [
+            {
+                id: 'b1',
+                category: 'bodys',
+                name: "Body Manga Larga Cuello Cuadrado Básico",
+                price: 22.00,
+                image: "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&q=80&w=600",
+                description: "Body confeccionado en suplex colombiano moldeador de alta compresión. Diseño de manga larga y escote cuadrado versátil e infaltable.",
+                sizes: ["S", "M", "L"],
+                colors: ["Negro Básico", "Blanco Puro", "Nude / Beige", "Rosa Pastel"]
+            },
+            {
+                id: 'b2',
+                category: 'bodys',
+                name: "Body Manga Corta Tipo Camiseta Básico",
+                price: 19.00,
+                image: "https://images.unsplash.com/photo-1524041255072-7da0525d6b34?auto=format&fit=crop&q=80&w=600",
+                description: "Body clásico de manga corta con ajuste efecto segunda piel. Ideal para lucir con jeans de tiro alto o faldas.",
+                sizes: ["S", "M", "L"],
+                colors: ["Blanco Óptico", "Negro Azabache", "Nude Beige", "Rosa Básico"]
+            },
+            {
+                id: 'b3',
+                category: 'bodys',
+                name: "Body Sin Mangas Tiras Anchas (Tank Top)",
+                price: 18.00,
+                image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=600",
+                description: "Diseño fresco sin mangas estilo escote U con tiras anchas. Moldeara tu silueta de forma cómoda para uso diario.",
+                sizes: ["S", "M", "L"],
+                colors: ["Negro Chic", "Blanco Marfil", "Nude Warm", "Rosa Bebé"]
+            },
+            {
+                id: 'b4',
+                category: 'bodys',
+                name: "Body Asimétrico Un Hombro (Sin Mangas)",
+                price: 20.00,
+                image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&q=80&w=600",
+                description: "Corte asimétrico de un solo hombro. Aporta un toque distinguido y moderno en tonos sólidos y atemporales.",
+                sizes: ["S", "M"],
+                colors: ["Negro Básico", "Blanco Radiante", "Rosa Lualia"]
+            },
+            {
+                id: 'o1',
+                category: 'oversize',
+                name: "Franela Oversize 'Chica Lualia' Cotton",
+                price: 16.00,
+                image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&q=80&w=600",
+                description: "Franela estilo oversize femenina en 100% algodón. Caída holgada, suave y moderna.",
+                sizes: ["Única (Oversize)"],
+                colors: ["Blanco Optico", "Rosa Dusty", "Gris Jaspe"]
+            },
+            {
+                id: 'o2',
+                category: 'oversize',
+                name: "Franela Oversize Estampado Minimalista",
+                price: 18.00,
+                image: "https://images.unsplash.com/photo-1554568218-0f1715e72254?auto=format&fit=crop&q=80&w=600",
+                description: "Diseño urbano relajado con tipografía delicada en el pecho. Comodidad total para el diario.",
+                sizes: ["M", "L", "XL"],
+                colors: ["Blanco con letras rosas", "Rosa con letras blancas"]
+            },
+            {
+                id: 'o3',
+                category: 'oversize',
+                name: "Franela Oversize Crop Tie-Dye Pink",
+                price: 17.00,
+                image: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&q=80&w=600",
+                description: "Corte crop holgado con teñido suave en tonos rosa y blanco. Perfecta para un outfit casual.",
+                sizes: ["S/M", "M/L"],
+                colors: ["Tie-Dye Pink & White"]
+            },
+            {
+                id: 'g1',
+                category: 'gorras',
+                name: "Gorra Personalizada con Iniciales",
+                price: 14.00,
+                image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&q=80&w=600",
+                description: "Gorra tipo bordada con tus iniciales o nombre. Broche ajustable metálico en la parte posterior.",
+                sizes: ["Ajustable"],
+                colors: ["Rosa con Bordado Blanco", "Blanca con Bordado Rosa", "Negra"]
+            },
+            {
+                id: 'g2',
+                category: 'gorras',
+                name: "Gorra Lualia Velvet Chic",
+                price: 15.00,
+                image: "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&q=80&w=600",
+                description: "Gorra en textura aterciopelada suave con aplique metálico dorado. Dale un toque elegante a tu gorra deportiva.",
+                sizes: ["Ajustable"],
+                colors: ["Rosa Pastel", "Beige Lujo"]
+            }
+        ];
+
+        // Estado del Carrito
+        let cart = [];
+
+        function renderProducts(categoryFilter = 'todos') {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            const filtered = categoryFilter === 'todos' 
+                ? products 
+                : products.filter(p => p.category === categoryFilter);
+
+            filtered.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card bg-white rounded-2xl overflow-hidden border border-brandPink-100 shadow-sm flex flex-col justify-between';
+                card.innerHTML = `
+                    <div class="relative overflow-hidden group cursor-pointer" onclick="openProductModal('${product.id}')">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-md text-brandPink-600 font-bold text-xs px-3 py-1 rounded-full shadow-sm">
+                            $${product.price.toFixed(2)}
+                        </div>
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-white text-brandDark font-semibold text-xs px-4 py-2 rounded-full shadow-md">Ver detalles</span>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-brandPink-400">${product.category}</span>
+                            <h3 class="font-bold text-brandDark text-base mt-1 line-clamp-1">${product.name}</h3>
+                            <p class="text-xs text-brandGray mt-1 line-clamp-2">${product.description}</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-brandPink-50 flex items-center justify-between">
+                            <span class="text-lg font-bold font-logo text-brandDark">$${product.price.toFixed(2)}</span>
+                            <button onclick="openProductModal('${product.id}')" class="px-4 py-2 rounded-full bg-brandPink-100 hover:bg-brandPink-400 hover:text-white text-brandPink-600 text-xs font-semibold transition-colors">
+                                <i class="fa-solid fa-plus mr-1"></i> Pedir
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filtros de Categoría
+        function filterCategory(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-brandPink-400', 'text-white', 'shadow-md');
+                btn.classList.add('bg-white', 'text-brandDark', 'border', 'border-brandPink-200');
+            });
+
+            const activeBtn = document.getElementById(`filter-${category}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-brandDark', 'border', 'border-brandPink-200');
+                activeBtn.classList.add('bg-brandPink-400', 'text-white', 'shadow-md');
+            }
+
+            renderProducts(category);
+        }
+
+        let currentModalProduct = null;
+
+        function openProductModal(productId) {
+            currentModalProduct = products.find(p => p.id === productId);
+            if (!currentModalProduct) return;
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <img src="${currentModalProduct.image}" alt="${currentModalProduct.name}" class="w-full h-64 md:h-full object-cover rounded-2xl">
+                    <div class="space-y-4">
+                        <span class="text-xs font-bold uppercase tracking-wider text-brandPink-500">${currentModalProduct.category}</span>
+                        <h3 class="text-2xl font-bold font-logo text-brandDark">${currentModalProduct.name}</h3>
+                        <p class="text-2xl font-bold text-brandPink-600">$${currentModalProduct.price.toFixed(2)}</p>
+                        <p class="text-xs text-brandGray">${currentModalProduct.description}</p>
+                        
+                        <!-- Talla selection -->
+                        <div>
+                            <label class="block text-xs font-bold text-brandDark mb-2">Selecciona tu Talla:</label>
+                            <div class="flex flex-wrap gap-2" id="modal-sizes">
+                                ${currentModalProduct.sizes.map((s, idx) => `
+                                    <button type="button" onclick="selectSize(this, '${s}')" class="size-btn ${idx === 0 ? 'bg-brandPink-400 text-white' : 'bg-gray-100 text-brandDark'} px-3 py-1.5 rounded-lg text-xs font-semibold">
+                                        ${s}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- Color selection -->
+                        <div>
+                            <label class="block text-xs font-bold text-brandDark mb-2">Selecciona el Color:</label>
+                            <select id="modal-color" class="w-full p-2.5 bg-gray-50 border border-brandPink-200 rounded-xl text-xs font-medium focus:outline-none focus:border-brandPink-400">
+                                ${currentModalProduct.colors.map(c => `<option value="${c}">${c}</option>`).join('')}
+                            </select>
+                        </div>
+
+                        <button onclick="addToCartFromModal()" class="w-full py-3 rounded-full bg-brandPink-400 hover:bg-brandPink-500 text-white font-bold text-sm shadow-md transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-bag-shopping"></i> Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            selectedSize = currentModalProduct.sizes[0];
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
+
+        let selectedSize = '';
+
+        function selectSize(btn, size) {
+            document.querySelectorAll('.size-btn').forEach(b => {
+                b.classList.remove('bg-brandPink-400', 'text-white');
+                b.classList.add('bg-gray-100', 'text-brandDark');
+            });
+            btn.classList.remove('bg-gray-100', 'text-brandDark');
+            btn.classList.add('bg-brandPink-400', 'text-white');
+            selectedSize = size;
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        function addToCartFromModal() {
+            if (!currentModalProduct) return;
+            const color = document.getElementById('modal-color').value;
+
+            const cartItem = {
+                id: currentModalProduct.id + '-' + selectedSize + '-' + color,
+                product: currentModalProduct,
+                size: selectedSize,
+                color: color,
+                quantity: 1
+            };
+
+            const existingIndex = cart.findIndex(item => item.id === cartItem.id);
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity++;
+            } else {
+                cart.push(cartItem);
+            }
+
+            updateCartUI();
+            closeProductModal();
+            toggleCart(); // Open cart drawer automatically
+        }
+
+        function updateCartUI() {
+            const countElem = document.getElementById('cart-count');
+            const itemsContainer = document.getElementById('cart-items');
+            const totalElem = document.getElementById('cart-total');
+
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            countElem.innerText = totalCount;
+
+            itemsContainer.innerHTML = '';
+
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = `
+                    <div class="text-center py-12 text-brandGray">
+                        <i class="fa-solid fa-bag-shopping text-4xl text-brandPink-200 mb-3"></i>
+                        <p class="text-sm">Tu carrito está vacío</p>
+                        <p class="text-xs mt-1">¡Añade bodys, oversize o gorras para comenzar!</p>
+                    </div>
+                `;
+                totalElem.innerText = "$0.00";
+                return;
+            }
+
+            let grandTotal = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.product.price * item.quantity;
+                grandTotal += itemTotal;
+
+                const row = document.createElement('div');
+                row.className = 'flex items-center gap-3 p-3 bg-brandPink-50/50 rounded-2xl border border-brandPink-100';
+                row.innerHTML = `
+                    <img src="${item.product.image}" alt="${item.product.name}" class="w-14 h-14 object-cover rounded-xl">
+                    <div class="flex-1">
+                        <h4 class="text-xs font-bold text-brandDark">${item.product.name}</h4>
+                        <p class="text-[11px] text-brandGray">Talla: <span class="font-semibold">${item.size}</span> | Color: <span class="font-semibold">${item.color}</span></p>
+                        <p class="text-xs font-bold text-brandPink-600 mt-1">$${item.product.price.toFixed(2)} x ${item.quantity}</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="changeQuantity('${item.id}', -1)" class="w-6 h-6 rounded-full bg-white text-brandDark border border-gray-200 text-xs flex items-center justify-center font-bold hover:bg-brandPink-100">-</button>
+                        <span class="text-xs font-bold">${item.quantity}</span>
+                        <button onclick="changeQuantity('${item.id}', 1)" class="w-6 h-6 rounded-full bg-white text-brandDark border border-gray-200 text-xs flex items-center justify-center font-bold hover:bg-brandPink-100">+</button>
+                    </div>
+                `;
+                itemsContainer.appendChild(row);
+            });
+
+            totalElem.innerText = `$${grandTotal.toFixed(2)}`;
+        }
+
+        function changeQuantity(itemId, delta) {
+            const index = cart.findIndex(item => item.id === itemId);
+            if (index > -1) {
+                cart[index].quantity += delta;
+                if (cart[index].quantity <= 0) {
+                    cart.splice(index, 1);
+                }
+            }
+            updateCartUI();
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function sendWhatsAppOrder() {
+            if (cart.length === 0) {
+                alert("Tu carrito está vacío. Agrega al menos una prenda antes de enviar el pedido.");
+                return;
+            }
+
+            let message = "Hola *Lualia Boutique* 💕, quisiera realizar el siguiente pedido desde su sitio web:\n\n";
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const sub = item.product.price * item.quantity;
+                total += sub;
+                message += `${index + 1}. *${item.product.name}*\n`;
+                message += `   • Talla: ${item.size}\n`;
+                message += `   • Color: ${item.color}\n`;
+                message += `   • Cantidad: ${item.quantity}\n`;
+                message += `   • Precio: $${sub.toFixed(2)}\n\n`;
+            });
+
+            message += `💰 *Total a Pagar:* $${total.toFixed(2)}\n\n`;
+            message += `📍 *Ubicación / Ciudad de Envío:* (Escribe tu ciudad aquí)\n`;
+            message += `🛵 *Método de entrega preferido:* (Delivery San Cristóbal / Envíos MRW-Zoom-Tealca)\n\n`;
+            message += `¡Quedo a la espera para coordinar el pago! ✨`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/584147514308?text=${encodedMessage}`;
+
+            window.open(whatsappURL, '_blank');
+        }
+
+        function openLightbox(imgSrc, captionText) {
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.getElementById('lightbox-caption').innerText = captionText;
+            document.getElementById('lightbox-modal').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox-modal').classList.add('hidden');
+        }
+
+        // Inicialización al cargar la página
+        window.onload = function() {
+            renderProducts('todos');
+            updateCartUI();
+        }
+    </script>
+</body>
+</html>
